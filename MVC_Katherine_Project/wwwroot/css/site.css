@@ -1,0 +1,86 @@
+html {
+
+
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color:lightgoldenrodyellow;
+}
+
+.caja {
+    width: 90%;
+    position: relative;
+    margin: 5%;
+    display: inline-block;
+}
+
+.img {
+    width: 100%;
+}
+
+.titulo {
+    margin: -18% 50% 0% 0%;
+    width: 100%;
+    text-align: center;
+    color: #63EAFB;
+    position: absolute;
+}
+
+.h1titulo {
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+div.izquierda {
+    width: 35%;
+    margin: 3% 5% 5% 10%;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+div.derecha {
+    width: 35%;
+    text-align: center;
+    float: left;
+    margin: 3% 5% 5% 10%;
+    box-sizing: border-box;
+}
+
+.img2 {
+    width: 100%;
+    display: block;
+}
+
+.hrhome {
+    height: 5px;
+    background-color: #63EAFB;
+    width: 50%;
+    margin-bottom: 5%;
+    border: solid #63EAFB 2px;
+}
+
+div.footer_dcha {
+    float: left;
+    width: 30%;
+    margin-left: 10%;
+}
+
+div.footer_izda {
+    float: left;
+    width: 20%;
+    margin-left: 50%;
+}
