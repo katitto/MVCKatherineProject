@@ -23,7 +23,7 @@ namespace MVC_Katherine_Project.Controllers
         // GET: Properties
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Property.ToListAsync());
+              return View(await _context.Properties.ToListAsync());
         }
         //GET: Properties/ShowSearchForm
         public async Task<IActionResult> ShowSearchForm()
@@ -33,18 +33,18 @@ namespace MVC_Katherine_Project.Controllers
         //METHOD SHOW SEARCH RESULT -- post method
         public async Task<IActionResult> ShowSearchResults(String SearchName, int SearchRooms, decimal SearchMeters, int SearchBathroom, decimal SearchPrice)
         {
-            return View("Index",await _context.Property.Where(j => j.Name.Contains(SearchName) || j.Rooms == SearchRooms || j.Meters == SearchMeters || j.Bathroom == SearchBathroom || j.Price == SearchPrice).ToListAsync());
+            return View("Index",await _context.Properties.Where(j => j.Name.Contains(SearchName) || j.Rooms == SearchRooms || j.Meters == SearchMeters || j.Bathroom == SearchBathroom || j.Price == SearchPrice).ToListAsync());
         }
 
         // GET: Properties/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Property == null)
+            if (id == null || _context.Properties == null)
             {
                 return NotFound();
             }
 
-            var @property = await _context.Property
+            var @property = await _context.Properties
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (@property == null)
             {
@@ -80,12 +80,12 @@ namespace MVC_Katherine_Project.Controllers
         // GET: Properties/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Property == null)
+            if (id == null || _context.Properties == null)
             {
                 return NotFound();
             }
 
-            var @property = await _context.Property.FindAsync(id);
+            var @property = await _context.Properties.FindAsync(id);
             if (@property == null)
             {
                 return NotFound();
@@ -132,12 +132,12 @@ namespace MVC_Katherine_Project.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Property == null)
+            if (id == null || _context.Properties == null)
             {
                 return NotFound();
             }
 
-            var @property = await _context.Property
+            var @property = await _context.Properties
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (@property == null)
             {
@@ -152,14 +152,14 @@ namespace MVC_Katherine_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Property == null)
+            if (_context.Properties == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Property'  is null.");
             }
-            var @property = await _context.Property.FindAsync(id);
+            var @property = await _context.Properties.FindAsync(id);
             if (@property != null)
             {
-                _context.Property.Remove(@property);
+                _context.Properties.Remove(@property);
             }
             
             await _context.SaveChangesAsync();
@@ -168,7 +168,7 @@ namespace MVC_Katherine_Project.Controllers
 
         private bool PropertyExists(int id)
         {
-          return _context.Property.Any(e => e.Id == id);
+          return _context.Properties.Any(e => e.Id == id);
         }
     }
 }

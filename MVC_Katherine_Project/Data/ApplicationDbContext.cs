@@ -10,6 +10,6 @@ namespace MVC_Katherine_Project.Data
             : base(options)
         {
         }
-        public DbSet<MVC_Katherine_Project.Models.Property> Property { get; set; }
+        public DbSet<Property> Properties { get; set; }
     }
 }

@@ -15,7 +15,7 @@
 
         public decimal Price { get; set; }
 
-        public Property(int id, string name, int rooms, int meters, int bathroom, bool lift, decimal price)
+        public Property(int id, string name, int rooms, int meters, int bathroom, Boolean lift, decimal price)
         {
             Id = id;
             Name = name;

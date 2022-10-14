@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVC_Katherine_Project.Data;
+using MVC_Katherine_Project.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,11 +16,17 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+if (args.Length == 1 && args[0].ToLower() == "seeddata")
+{
+  
+    Seed.SeedData(app);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    
 }
 else
 {
@@ -42,3 +49,4 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+
